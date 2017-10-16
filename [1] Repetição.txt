@@ -1,0 +1,69 @@
+|| Exercícios de Repetição || 
+
+1) Faça um programa que leia um número qualquer e calcule a tabuada desse número. A tabuada deve ser exibida ao usuário no seguinte formato (considerando a leitura do número 2):
+
+2 X 1 = 2
+2 X 2 = 4
+2 X 3 = 6
+...
+2 X 10 = 20
+
+2) Faça um programa que mostre o resultado da soma obtida dos cem primeiros números inteiros (1+2+3+4+5+6+7...+97+98+99+100).
+
+3) Faça um programa que leia 2 valores inteiros e positivos: X e Y. O algoritmo deve calcular e escrever a função potência XY.
+
+4) Chico tem 1,50 metro e cresce 2 centímetros por ano, enquanto Zé tem 1,10 metro e cresce 3 centímetros por ano. Construa um algoritmo que calcule e imprima quantos anos serão necessários para que Zé seja maior que Chico.
+
+5) Faça um programa para calcular a somatória, a soma dos quadrados e a média entre os n primeiros números informados pelo usuário. O final da leitura acontecerá quando for lido o número zero.
+
+6) Faça um programa que calcule a média aritmética de n valores inteiros positivos informados pelo usuário. O final da leitura acontecerá quando for lido um valor negativo.
+
+7) Em uma eleição presidencial existem quatro candidatos. Os votos são informados através de códigos. Os dados utilizados para a contagem dos votos obedecem à seguinte codificação:
+
+1,2,3,4 = voto para os respectivos candidatos;
+5 = voto nulo;
+6 = voto em branco;
+Faça um programa que leia o código do candidato em um voto. Calcule e escreva:
+
+- total de votos para cada candidato;
+- total de votos nulos;
+- total de votos em branco;
+
+Como finalizador do conjunto de votos, tem-se o valor 0.
+
+8) Faça um programa que calcule a média dos números digitados pelo usuário, se eles forem pares. Termine a leitura se o usuário digitar zero (0).
+
+9) Faça um programa que lê um valor n inteiro e positivo e que calcula a seguinte soma: S := 1 + 1/2 + 1/3 + 1/4 + ... + 1/n O algoritmo deve escrever cada termo gerado e o valor final de S.
+
+10) Faça um programa que conte quantos números pares existem entre dois números inteiros.
+
+11) Faça um programa que conte quantos números positivos existem entre dois números inteiros.
+
+12) Faça um programa que gere e escreva os números ímpares no intervalo entre 100 e 115.
+
+13) Faça um programa que calcule e escreva o fatorial de um número informado pelo usuário. Lembre-se que o fatorial de 0 é 1.
+
+14) Faça um programa que calcule a potência de um número lido, onde o expoente varia de 0 a 5. Deve ser considerado que qualquer número elevado a zero é 1, e elevado a 1 é ele próprio. O resultado da potência deve ser exibida ao usuário no seguinte formato (considerando a leitura do número 3):
+
+3 na potência 0 = 1
+3 na potência 1 = 3
+3 na potência 2 = 9
+... e assim por diante
+
+15) Faça um programa que gere números de 1 a 110 e escreva aqueles que dividido por 11 dão resto igual a 5.
+
+16) Faça um programa que calcule os n primeiros termos de uma Progressão Aritmética (PA). Para isso o programa deverá ler um número n (número de termos da PA), a1 (o primeiro termo da PA) e r (a razão da PA), considerando que cada novo termo é composto pelo termo anterior somado com a razão.
+
+17) Faça um programa que calcule a soma dos termos de uma Progressão Aritmética (PA). O Programa deverá ler um número n (número de termos da PA), a1 (o primeiro termo da PA) e r (a=razão da PA). Exemplo: Se a1= 2; n=5 e r=3 então a PA(n) será: PA(5) = 2 + 5 + 8 + 11 + 14 = 40
+
+18) Faça um programa que apresente a série de Fibonacci até o 10º termo. A série de Fibonacci é formada pela seqüência: 1, 1, 2, 3, 5, 8, 13, 21, 34, ... etc
+
+19) Faça um programa que leia 5 valores para X, um de cada vez, e conta quantos destes valores são negativos, escrevendo esta informação.
+
+20) Faça um programa que leia 10 valores, um de cada vez, e conta quantos deles estão no intervalo [10,20] e quantos deles estão fora do intervalo, escrevendo estas informações.
+
+21) Faça um programa que mostre os números primos no intervalo entre 1 e 15.
+
+22) Faça um programa que gera e escreve os 3 primeiros números perfeitos. Um número perfeito é aquele que é igual a soma dos seus divisores. (Ex.: 6 = 1+2+3; 28 = 1+2+4+7+14).
+
+23) Faça um programa que calcula e escreve o produto dos números primos entre 1 e 100.
