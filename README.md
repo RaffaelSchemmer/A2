@@ -2,8 +2,8 @@ Repositório de conteúdos e programas do Alpha II (LP-I)
 -----------
 
 ```
-[1] Sequenciais e Condicionais
-[2] Iterativos e Vetores
+[1] Repetição
+[2] Vetores
 [3] Matrizes
 [4] Funções
 ```
