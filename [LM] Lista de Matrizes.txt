@@ -1,0 +1,19 @@
+1. Elabore um programa que leia duas matrizes 3X3 utilizando valores aleatórios. A seguir crie uma terceira matriz que seja a soma dos elementos das duas matrizes lidas. O resultado deve ser exibido em um TSTRINGGRID.
+
+2. Elaborar um programa que leia uma matriz M(3,3) utilizando valores aleatórios e um valor A livo dia TEDIT ou InputBox. Multiplique a matriz M pelo valor A e coloque os resultados em um vetor de V(9), exibindo no final o vetor V em um TMEMO e/ou um TSTRINGGRID.
+	
+3. Faça um programa que leia uma matriz 5X5 utilizando números aleatórios e armazene os elementos da diagonal principal num Vetor. Mostre a matriz e o vetor em um TMEMO e/ou um TSTRINGGRID.
+	
+4. Faça um programa que leia uma matriz 5X5 utilizando números aleatórios e armazene os elementos da diagonal secundária num Vetor. Mostre a matriz e o vetor em um TMEMO e/ou um TSTRINGGRID.
+	
+5. Faça um programa que leia uma matriz 3X4 utilizando números aleatórios, calcule e mostre a soma das linhas pares da matriz em um TMEMO.
+	
+6. Na teoria dos sistemas, define-se como elemento minimax de uma matriz o menor elemento da linha onde se encontra o maior elemento da matriz. Faça um programa que leia uma matriz 10X10 de inteiros utilizando valores aleatórios e encontre seu elemento minimax, mostrando também sua posição em um TMEMO.
+	
+7. Faça um programa que leia uma matriz A (5,5) de números inteiros aleatórios e crie 2 vetores MaiorL(5) e MenorC(5), que contenham, respectivamente, o maior elemento de cada uma das linhas e o menor elemento de cada uma das colunas. Escrever a matriz A e os vetores MaiorL e MenorC em um TMEMO e/ou um TSTRINGGRID.
+	
+8. Faça um programa que leia um número inteiro X de um TEDIT ou de um InputBox e uma matriz M(5,5) de inteiros aleatórios. Conte quantos valores iguais a X estão na matriz e mostre o resultado em um TMEMO.
+
+9. Faça um programa que leia uma matriz M(5,5) de números inteiros aleatórios e calcula as somas da linha 4 de M, da coluna 2 de M e de de todos os elementos da matriz M. Escreva essas somas e a matriz em um TMEMO e/ou um TSTRINGGRID.
+	
+10. Faça um programa que lê uma matriz M (4,4) de númreos aleatórios e cria 2 vetores SL(4) e SC(4) que contenham, respectivamente, as somas das linhas e das colunas de M. Escrever a matriz e os vetores criados em um TMEMO e/ou um TSTRINGGRID.

@@ -1,0 +1,19 @@
+1. Faça um programa que leia um vetor de 10 posições de números inteiros. A seguir calcule o quadrado de cada elemento do vetor lido, armazenando o resultado num segundo vetor. Por fim, mostre o segundo vetor em um TMEMO e/ou em um TSTRINGGRID.
+
+2. Faça um programa que leia um vetor de 10 posições de números inteiros e calcule a soma de todos os seus elementos. Mostre o vetor e a somatória final em um TMEMO e/ou em um TSTRINGGRID.
+	
+3. Faça um programa que leia dois vetores de 10 posições e faça a multiplicação dos elementos de mesmo índice, colocando o resultado em um terceiro vetor. Por fim, mostre o terceiro vetor em um TMEMO e/ou em um TSTRINGGRID.
+	
+4. Faça um programa que leia dois vetores de 10 palavras e crie um terceiro vetor que seja a união dos dois vetores lidos. Por fim, mostre a união em um TMEMO e/ou em um TSTRINGGRID.
+	
+5. Faça um programa que leia um vetor de 8 posições de números inteiros e apresente a soma dos elementos de índices pares e o produto dos elementos de índices ímpares do vetor. Por fim, mostre a soma em um TMEMO e/ou em um TEDIT.
+	
+6. Faça um programa que leia um vetor de 10 posições contendo palavras e um código numérico. Se o código for zero, termine o algoritmo. Se o código for 1, mostre o vetor na ordem direta. Se o código for 2, mostre o vetor na ordem inversa. Por fim, mostre o vetor em um TMEMO e/ou em um TEDIT.
+	
+7. Faça um programa que leia e mostre um vetor de 10 elementos inteiros. A seguir conte quantos valores positivos existem no vetor mostrando esta informação. Por fim, mostre a contagem em um TMEMO e/ou em um TEDIT.
+	
+8. Faça um programa que leia um vetor de 10 elementos inteiros. A seguir troque o primeiro elemento com o último, o segundo com o penúltimo, o terceiro com o antepenúltimo e assim por diante. Mostre o vetor lido e o vetor modificado em um TMEMO e/ou em um TSTRINGGRID. 
+	
+9. Faça um programa que leia um vetor de 5 elementos inteiros e mostre-o. A seguir, encontre o maior valor e multiplique cada elemento do vetor pelo Maior. Mostrar o maior elemento e o vetor modificado pelo cálculo em um TMEMO e/ou em um TSTRINGGRID.
+	
+10. Faça um programa que leia um vetor de 10 posições e mostre-o ordenado em ordem crescente em em um TMEMO e/ou em um TSTRINGGRID.
