@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/09/10 05:04:01.000.980,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit18.pas</Transaction>
+    <Transaction>2018/09/10 05:42:54.000.398,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit18.dfm=C:\Users\Dell\Desktop\PrjFrutas\UntFrutas.dfm</Transaction>
+    <Transaction>2018/09/10 05:42:54.000.398,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit18.pas=C:\Users\Dell\Desktop\PrjFrutas\UntFrutas.pas</Transaction>
+    <Transaction>2018/09/10 05:42:58.000.103,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Project10.dproj=C:\Users\Dell\Desktop\PrjFrutas\PrjFrutas.dproj</Transaction>
+    <Transaction>2018/09/10 14:46:23.000.215,=C:\Users\Dell\Desktop\PrjFrutas\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
