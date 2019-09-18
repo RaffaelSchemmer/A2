@@ -1,4 +1,4 @@
-Repositório de conteúdos e programas do Alpha II (LP-I)
+Repositório de conteúdos e programas da disciplina de Programação I (P-I)
 -----------
 
 ```
