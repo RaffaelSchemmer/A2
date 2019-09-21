@@ -30,7 +30,7 @@ Repositório de conteúdos e programas da disciplina de Programação I (P-I)
 
 - [IX] Jogo da Velha: Implementação de um sistema de jogo eletrônico em Delphi, utilizando laços de repetição e vetores, com objetivo de praticar o uso do temporizador, e da transição de eventos, sincronizados pelo click do usuário e o timeout do relógio. Este projeto busca trabalhar o conceito e o uso das matrizes.
 
-- [X] Show do Ensino Médio: Implementação de um sistema de jogo eletrônico em Delphi, similar ao jogo do milhão. Este projeto, pretende explorar todos os componentes VCL aprendidos na disciplina, buscando que o aluno desenvolva a lógica do programa (cadastrar/jogar), por intermédio do uso dos procedimentos e das funções do Delphi.
+- [XX] Show do Ensino Médio: Implementação de um sistema de jogo eletrônico em Delphi, similar ao jogo do milhão. Este projeto, pretende explorar todos os componentes VCL aprendidos na disciplina, buscando que o aluno desenvolva a lógica do programa (cadastrar/jogar), por intermédio do uso dos procedimentos e das funções do Delphi.
 
 [Programas Exemplo]:
 -----------
