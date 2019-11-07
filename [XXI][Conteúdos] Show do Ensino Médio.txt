@@ -1,0 +1,341 @@
+# Tecnologias necessárias para o trabalho final:
+	
+[0] Novos elementos VCL:
+
+	- TMAINMENU
+	
+		[Utilidade]
+		
+			- Implementa um menu superior que permite o usuário selecionar funcionalidades.
+		
+		[Propriedades]
+		
+			- Name: Nome do Menu.
+			
+			- MenuDesign: Permite criar opções
+			
+				- Enabled: Habilita ou desabilita uma opção do menu
+				- Caption: Define uma opção para o menu
+		
+		[Eventos]
+		
+			- onClick: Define um procedimento que trata (atende) o click em uma das opções
+			
+		[Como pode ser utilizado no trabalho?]
+
+			Menu com opções como cadastrar perguntas e novo jogo.
+
+	- Caixa de diálogo MESSAGEDLG:
+	
+		[Utilidade]
+		
+			- Abre caixas de diálogo (condicionadas) para o usuário escolher o que fazer.
+			- Vantagens: Permite confirmar/informar as ações que o usuário fará no programa.
+			- A função MessageDlg precisa de 3 parâmetros sendo eles:
+			
+				[1] Nome da mensagem na caixa de diálogo como 'Quer mesmo apagar usuário?'
+				[2] Tipo de mensagem como mtConfirmation por exemplo
+				[3] Tipo de condição a ser utilizada
+				[4] Passar zero
+				
+			- Utilize o autocomplete (Ctrl + SPACE) para completar a quantidade de parâmetros.
+			
+		[Tipos de mensagens]
+		
+			- mtWarning
+			- mtError
+			- mtConfirmation
+			- mtInformation
+			
+		[Tipos de condições]
+		
+			- mbYesNo
+			- mbYesNoCancel
+			- mbOkCancel
+		
+		[Retorno das mensagens]
+		
+			- mrYes (6)
+			- mrNo (7)
+			- mrOk (1)
+			- mrCancel (2)
+			
+		[Utilizando a caixa de diálogo]
+		
+			retorno : Integer;
+			
+			retorno := MessageDlg('Quer mesmo excluir a pergunta?',mtConfirmation,mbYesNo,0);
+			
+			if retorno = mrYes then
+			begin
+				alert('Pergunta excluída com sucesso!');
+			end
+			else
+			begin
+				alert('Exclusão cancelada!');
+			end;
+			
+	- Tipo de dados TDATE:
+	
+		[Utilidade]
+		
+			- Permite que os programas delphi utilizem datas.
+			
+		[Declarando uma variável do tipo TDate e formatando a mesma]
+		
+			data : TDate;
+			
+		[Capturando a data atual do sistema]
+		
+			data := now;
+		
+		[Mostrando o valor da data na saída padrão]
+		
+			- Crie variáveis do tipo word para receber os valores da data:
+			
+				- myYear: Word;
+				- myMonth: Word;
+				- myDay: Word;
+
+			- Utilize a função DecodeDate para pegar a data do calendário:
+			
+				- DecodeDate(data, myYear, myMonth, myDay);
+			
+			- Mostre os valores de myDay / myMonth / myYear na saída padrão:
+			
+				showmessage(IntToStr(myDay) + '/' + IntToStr(myMonth) + '/' + IntToStr(myYear));
+			
+		[Definindo um valor para data]
+		
+			- myYear := 2019;
+			- myMonth := 03;
+			- myDay := 01;
+			- data := EncodeDate(myYear, myMonth, myDay);
+	
+	- TSTATUSBAR
+	
+		[Utilidade]
+		
+			- Barra de status (a ser utilizada no rodapé do programa) que trás informações sobre o programa.
+			- Podemos utilizar a barra para informar quantos contatos estão cadastrados na agenda.
+			
+		[Propriedades]
+		
+			- Color: Define a cor da barra de status
+			- Hint : Define um texto de dica para a barra de status
+			- ShowHint : Habilita/Desabilita a dica
+			- Enabled: Habilita/Desabilita a barra de status
+			- Visible : Torna a barra de status visível ou não
+			- Name: Nome do componente
+			- Panels[0].Text : Define o conteúdo da barra de status
+			
+		[Eventos]
+		
+			onEnter: Executa toda vez que o TAB entrar dentro do TStatusBar.
+			onExit: Executa toda vez que o TAB sair dentro do TStatusBar.
+			onClick: Executa toda vez que um clique for feito no TStatusBar.
+			onDblClick: Executa toda vez que dois clicks forem feitos no TStatusBar.
+			onMouseEnter: Executa toda vez que o mouse entrar no TStatusBar.
+			onMouseLeave: Executa toda vez que o mouse sair no TStatusBar.
+
+[1] Registros
+
+	[1.1] O que é?
+		
+		- Tecnologia que permite criar tipos de dados heterogêneos.
+		- Tipo heterogêneo é um tipo formado de tipos primitivos.
+		- Isso permite criar variáveis complexas.
+		- Defina o novo tipo antes de var.
+		
+	[1.2] Exemplo (Criando um tipo heterogêneo):
+
+		TYPE Pessoa = record
+
+			Idade: integer;
+			Nome : string[35];
+			Endereco: string[35];
+
+		END;
+
+	[1.3] Declarando uma variável (global) do tipo pessoa:
+
+		Cliente : Pessoa;
+
+	[1.4] Utilizando uma variável composta:
+
+		Cliente.Idade := 32;
+		Cliente.Nome := 'Raffael Bottoli Schemmer';
+		Cliente.Endereco := 'Antônio Xavier da Luz';
+	
+[2] Funções (Revisão)
+
+	[2.1] O que é?
+		
+		- Tecnologia que permite o desenvolvimento de programas modulares (estruturados).
+		- Isso favorece o reuso de código.
+		- Isso favorece a modelagem de software (projeto pensado em funcionalidades).
+		- Utilize o atalho do DELPHI (Ctrl + Shift + C) para definir a função (logo depois de declarada).
+		
+	[2.2] Exemplo I (Criando uma função que calcula o fatorial):
+	
+		{
+			Nome da função: Fatorial
+			Quantidade de valores (POR CÓPIA) passados para a função: 1
+			Tipo de retorno: INTEGER
+		}
+		FUNCTION Fatorial(N:INTEGER): INTEGER
+
+		{ Variáveis locais da função (Nascem e morrem após a chamada da função) }
+		
+		VAR F,I:INTEGER
+
+		BEGIN
+
+			F := 1;
+			FOR I:= 1 to N DO
+			
+			BEGIN
+
+				F := F * I;
+			END
+
+			{ RESULT retorna o valor de F para quem chamou e acaba imediatamente a função }
+			RESULT := F;
+
+		END;
+	
+[3] Arquivos
+
+	[3.1] O que é?
+	
+		- Tecnologia que permite persistir (para sempre) os dados do programa no HDD (ARQUIVO)
+		- Muito utilizado por programas que não utilizam banco de dados
+		- Observe que na declaração da variável arquivo seu tipo de dado é FILE OF 
+		- Neste exemplo utilizaremos um arquivo (FILE) do tipo (CONTATO)
+		
+	[3.2] Criando um ARQUIVO
+	
+		- Professor recomenda que alunos trabalhem com REGISTROS pois facilita a LEITURA/ESCRITA.
+		- Exemplo de estrutura que iremos utilizar no primeiro projeto: 
+		
+		TYPE
+		
+			CONTATO = record
+			Matricula: integer;
+			Nome: string[40];
+			Endereco: string[50];
+			StatusReg: BOOLEAN;
+		
+		END; 
+		
+		ARQUIVO: file of CONTATO;
+
+		
+	[3.3] ABRINDO arquivos (Colocar dentro de OnCreate)
+	
+		i := 0;
+		WHILE i < 100 DO
+		BEGIN
+		
+			AGENDA[i].StatusReg := FALSE;
+			i := i + 1;
+		
+		END
+
+		
+		AssignFile(ARQUIVO, 'AGENDABD.DAT');
+
+		IF FILEEXISTS('AGENDABD.DAT') THEN
+		BEGIN
+			RESET(ARQUIVO)
+		END
+		ELSE
+			REWRITE(ARQUIVO);
+		END;
+		
+	[3.4] Realizando a leitura de um arquivo (Colocar dentro de OnCreate)
+	
+		SEEK(ARQUIVO,0); // posiciona o ponteiro de registros no início do arquivo
+		i := 0;
+		WHILE (NOT EOF(ARQUIVO)) DO
+		BEGIN
+			
+			READ(ARQUIVO,CONTATO[i]);
+			i := i + 1;
+		
+		END
+	
+	[3.5] Realizando a escrita de um arquivo
+	
+		ERASE(ARQUIVO);
+		i := 0;
+		WHILE i < 100 DO
+		BEGIN
+			
+			IF ( DADO[i].StatusReg = TRUE) THEN
+			BEGIN
+				WRITE(ARQUIVO, DADO[i]);
+			END;
+			i := i + 1;
+		END;
+		CLOSEFILE(ARQUIVO);
+		
+	[3.6] Fechado um arqiuvo (Colocar dentro de OnClose)
+			
+		CLOSEFILE(ARQUIVO);
+		
+	[3.7] Resumo das funções utilizadas em arquivos:
+	
+		- Vincula o arquivo texto AGENDABD.DAT a variável ARQUIVO:
+		
+			AssignFile(ARQUIVO, 'AGENDABD.DAT');
+		
+		- Verifica se o arquivo existe (retorna TRUE se sim):
+		
+			FILEEXISTS('AGENDA.DAT')
+			
+		- Abre o arquivo para leitura/escrita:
+		
+			RESET(ARQUIVO);
+		
+		- Limpa (apaga) o conteúdo do arquivo:
+		
+			REWRITE(ARQUIVO); 
+			
+		- Posiciona o cursor de leitura para o início do arquivo:
+		
+			SEEK(ARQUIVO,0);
+		
+		- Realiza a leitura do arquivo enquanto não for o fim do arquivo:
+		
+			NOT EOF(ARQUIVO)
+			
+		- Escreve no arquivo um valor (CONTATO):
+		
+			WRITE(ARQUIVO, Agenda[i]);
+			
+		- Lê do arquivo um valor (CONTATO):
+				
+			READ(ARQUIVO,Agenda[i]);
+			
+		- Realiza o fechamento do arquivo:
+		
+			CLOSEFILE(ARQUIVO);
+
+[4] Criando arquivo Delphi (Unt) sem tela:
+
+	- File > New > Unit Delphi
+	
+	- Imagine um programa de computador, dividido em duas partes:
+		- Um primeiro código fonte (Unt), implementa os eventos que respondem a tela (componentes VCL)
+		- Um segundo código fonte (Unt), declara procedimentos e funções que cuidam do banco de dados (arquivo).
+	
+	- Essa separação de papeis (funcionalidades) torna mais simples o desenvolvimento do programa:
+		- O código fonte com a lógica dos eventos da tela, torna-se menor e mais simples de ser implementado/depurado.
+
+	- A lógica dos procedimentos e funções que cuidam do banco de dados (arquivo) é "escondida do programador.
+	- Essa separação de papeis, cria dois tipos de programadores (que podem trabalhar em conjunto), sendo eles:
+
+		- Programador que cuida da tela e da lógica de controle da tela (Front-End ou FE);
+		- Programador que cuida da lógica de acesso ao banco de dados (Back-End ou BE);
+	
