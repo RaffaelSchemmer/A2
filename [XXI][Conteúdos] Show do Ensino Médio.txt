@@ -241,7 +241,6 @@
 			i := i + 1;
 		
 		END
-
 		
 		AssignFile(ARQUIVO, 'AGENDABD.DAT');
 
@@ -338,4 +337,32 @@
 
 		- Programador que cuida da tela e da lógica de controle da tela (Front-End ou FE);
 		- Programador que cuida da lógica de acesso ao banco de dados (Back-End ou BE);
+
+	- A estrutura de um Unt sem for é:
 	
+		- Unit
+		- Uses (não é obrigatório, mas você pode achar necessário usar alguns componentes VCL, como o Dialogs)
+		- Interface (tipo de dado é definido aqui dentro)
+		- Definição dos procedimentos e funções
+		- Declaração das variáveis globais e constantes
+		- Implementation
+		
+[5] Arrays dinâmicos:
+
+	- Delphi permite criar arrays, sem que o programador precise definir o tamanho inicial do array:
+		- Isso permite que o programa consiga gerenciar o espaço de memória necessário, conforme o programa for necessitando de memória.
+	
+	- Devemos declarar o vetor como TArray<T>
+		- Assuma T como o tipo de dado do vetor (Pode ser do tipo registro).
+	
+	- Exemplos de arrays dinâmicos:
+		agendaContatos : TArray<pessoa>
+		notasAluno : TArray<Integer>
+		
+	- Como utilizar?
+	
+		- Sempre, devemos definir o tamanho do vetor com setLength(vetor,tamanho).
+		
+			- Por exemplo, definindo em tempo de execução, setLength(agendaContatos,5).
+			
+		- Para percorrer o vetor, utilizamos a função Length(vetor) que retorna o tamanho do vetor.
