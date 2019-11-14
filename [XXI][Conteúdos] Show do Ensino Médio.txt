@@ -219,18 +219,25 @@
 		- Exemplo de estrutura que iremos utilizar no primeiro projeto: 
 		- Incluir biblioteca SysUtils
 		
-		TYPE
-		
-			CONTATO = record
-			Matricula: integer;
-			Nome: string[40];
-			Endereco: string[50];
-			StatusReg: BOOLEAN;
-		
-		END; 
-		TYPE
+		type
 
-  			ArrayPergunta = Array of Pergunta;
+		  Pergunta = record
+
+		    cdpergunta: integer;
+		    enunciado: string[40];
+		    alta: string[40];
+		    altb: string[40];
+		    altc: string[40];
+		    altd: string[40];
+		    correta: integer;
+		    cdarea: integer;
+		    ativo: boolean;
+
+		  end;
+
+		type
+
+		  ArrayPergunta = Array of Pergunta;
 			
 		ARQUIVO: file of Pergunta;
 
