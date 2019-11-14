@@ -217,6 +217,7 @@
 	
 		- Professor recomenda que alunos trabalhem com REGISTROS pois facilita a LEITURA/ESCRITA.
 		- Exemplo de estrutura que iremos utilizar no primeiro projeto: 
+		- Incluir biblioteca SysUtils
 		
 		TYPE
 		
@@ -227,67 +228,159 @@
 			StatusReg: BOOLEAN;
 		
 		END; 
-		
-		ARQUIVO: file of CONTATO;
+		TYPE
+
+  			ArrayPergunta = Array of Pergunta;
+			
+		ARQUIVO: file of Pergunta;
 
 		
-	[3.3] ABRINDO arquivos (Colocar dentro de OnCreate)
+	[3.3] ABRINDO arquivo (Colocar dentro de OnCreate)
 	
-		i := 0;
-		WHILE i < 100 DO
-		BEGIN
-		
-			AGENDA[i].StatusReg := FALSE;
-			i := i + 1;
-		
-		END
-		
-		AssignFile(ARQUIVO, 'AGENDABD.DAT');
+		  // Vincula a variável banco ao arquivo texto
+		  AssignFile(banco, 'AGENDABD.DAT');
 
-		IF FILEEXISTS('AGENDABD.DAT') THEN
-		BEGIN
-			RESET(ARQUIVO)
-		END
-		ELSE
-			REWRITE(ARQUIVO);
-		END;
+		  // Se o arquivo existir, abre o mesmo para leitura
+		  if FileExists('AGENDABD.DAT') then
+		  begin
+
+		    reset(banco);
+		    // Posiciona na penúltima posição do arquivo
+		    seek(banco, filesize(banco) - 1);
+		    read(banco, tPergunta);
+		    cdperguntaatual := tPergunta.cdpergunta;
+
+		  end
+		  else // Caso contrário, cria um novo arquivo
+		  begin
+
+		    Rewrite(banco);
+		    cdperguntaatual := 0;
+
+		  end;
+
 		
-	[3.4] Realizando a leitura de um arquivo (Colocar dentro de OnCreate)
+	[3.4] Realizando a fechamendo de um arquivo (Colocar dentro de OnClose)
 	
-		SEEK(ARQUIVO,0); // posiciona o ponteiro de registros no início do arquivo
-		i := 0;
-		WHILE (NOT EOF(ARQUIVO)) DO
-		BEGIN
+		 // Fecha arquivo
+  		 CloseFile(banco);
+	
+	[3.5] Realizando a cadastro de pergunta em um arquivo
+	
+		  // Atualiza codigo da pergunta atual
+		  Inc(cdperguntaatual);
+
+		  // Atualiza o registro com o codigo da pergunta mais recente
+		  pPergunta.cdpergunta := cdperguntaatual;
+		  pPergunta.ativo := true;
+
+		  // Posiciona no fim do arquivo
+		  seek(banco, filesize(banco));
+		  write(banco, pPergunta);
+
+		  // Retorna pergunta cadastrada
+		  Result := pPergunta;
+		  Exit;
+		
+	[3.6] Realizando a remoção de uma pergunta
 			
-			READ(ARQUIVO,CONTATO[i]);
-			i := i + 1;
-		
-		END
+		  // Posiciona no inicio do arquivo
+		  seek(banco, 0);
+		  while (not EOF(banco)) do
+		  begin
+
+		    read(banco,tPergunta);
+
+		    if (pPergunta.ativo = false) AND (tPergunta.cdpergunta = pPergunta.cdpergunta) then
+		    begin
+
+			seek(banco,FilePos(banco)-1);
+			write(banco,pPergunta);
+			Result := true;
+			Exit;
+
+		      end;
+
+		  end;
+		  Result := false;
+  		  Exit;	
+		  
+	[3.7] Realizando a edição de uma pergunta
 	
-	[3.5] Realizando a escrita de um arquivo
+		  // Posiciona no inicio do arquivo
+		  seek(banco, 0);
+
+		  // Percorre todo arquivo em memoria
+		  while (not EOF(banco)) do
+		  begin
+
+		      // Le cada um dos registros
+		      read(banco,tPergunta);
+
+		      // verifica se registro lido esta tivo e se cdpergunta e igual ao registro a ser editado
+		      if (tPergunta.ativo) AND (tPergunta.cdpergunta = pPergunta.cdpergunta) then
+		      begin
+
+			// Edita registro com o conteudo do parametro e retorna true
+			write(banco,pPergunta);
+			Result := true;
+			Exit;
+
+		      end;
+
+		  end;
+
+		  // Caso nao encontrar o registro retorna falso
+		  Result := false;
+		  Exit;
+		  
+	[3.8] Realizando a listagem das perguntas cadastradas
 	
-		ERASE(ARQUIVO);
-		i := 0;
-		WHILE i < 100 DO
-		BEGIN
-			
-			IF ( DADO[i].StatusReg = TRUE) THEN
-			BEGIN
-				WRITE(ARQUIVO, DADO[i]);
-			END;
-			i := i + 1;
-		END;
-		CLOSEFILE(ARQUIVO);
-		
-	[3.6] Fechado um arqiuvo (Colocar dentro de OnClose)
-			
-		CLOSEFILE(ARQUIVO);
-		
-	[3.7] Resumo das funções utilizadas em arquivos:
+		 // Posiciona no inicio do arquivo
+		  seek(banco, 0);
+
+		  // Estrutura utilizada para contar quantos registros estao ativos no arquivo
+		  cont := 0;
+		  while (not EOF(banco)) do
+		  begin
+		    read(banco,tPergunta);
+
+		      if tPergunta.ativo then
+		      begin
+			Inc(cont);
+		      end;
+		  end;
+
+		  // Posiciona no inicio do arquivo
+		  seek(banco, 0);
+
+		  // Define o novo tamanho do vetor dinamico
+		  SetLength(tArrayPergunta,cont);
+
+		  // Percorre todo arquivo em memoria
+		  cont := 0;
+		  while (not EOF(banco)) do
+		  begin
+
+				read(banco,tPergunta);
+
+		      if tPergunta.ativo then
+		      begin
+			tArrayPergunta[cont] := tPergunta;
+			Inc(cont);
+		      end;
+
+		  end;
+
+		  // Retorna o array com as perguntas ativas encontradas no banco
+		  Result := tArrayPergunta;
+		  Exit;
+  
+	[3.9] Resumo de todas as funções de manipulação do arquivo
 	
-		- Vincula o arquivo texto AGENDABD.DAT a variável ARQUIVO:
+		- Vincula o arquivo texto AGENDABD.DAT a variável Pergunta:
 		
-			AssignFile(ARQUIVO, 'AGENDABD.DAT');
+			AssignFile(banco, 'AGENDABD.DAT');
 		
 		- Verifica se o arquivo existe (retorna TRUE se sim):
 		
@@ -295,31 +388,39 @@
 			
 		- Abre o arquivo para leitura/escrita:
 		
-			RESET(ARQUIVO);
+			RESET(banco);
 		
-		- Limpa (apaga) o conteúdo do arquivo:
+		- Cria o arquivo caso o mesmo não exista:
 		
-			REWRITE(ARQUIVO); 
+			REWRITE(banco); 
 			
 		- Posiciona o cursor de leitura para o início do arquivo:
 		
-			SEEK(ARQUIVO,0);
+			SEEK(banco,0);
 		
-		- Realiza a leitura do arquivo enquanto não for o fim do arquivo:
+		- Realiza a leitura do arquivo enquanto não for o fim do arquivo (colocar na pergunta do while):
 		
-			NOT EOF(ARQUIVO)
+			NOT EOF(banco)
 			
-		- Escreve no arquivo um valor (CONTATO):
+		- Escreve no arquivo um valor (Pergunta):
 		
-			WRITE(ARQUIVO, Agenda[i]);
+			WRITE(banco, Agenda[i]);
 			
-		- Lê do arquivo um valor (CONTATO):
+		- Lê do arquivo um valor (Pergunta):
 				
-			READ(ARQUIVO,Agenda[i]);
+			READ(banco,Agenda[i]);
 			
 		- Realiza o fechamento do arquivo:
 		
-			CLOSEFILE(ARQUIVO);
+			CLOSEFILE(banco);
+		
+		- Retorna a quantidade de registros (Pergunta) cadastrados no arquivo:
+		
+			filesize(banco);
+			
+		- Retorna a atual posição que está sendo manipulada:
+		
+			FilePos(banco);
 
 [4] Criando arquivo Delphi (Unt) sem tela:
 
@@ -356,8 +457,14 @@
 		- Assuma T como o tipo de dado do vetor (Pode ser do tipo registro).
 	
 	- Exemplos de arrays dinâmicos:
-		agendaContatos : TArray<pessoa>
-		notasAluno : TArray<Integer>
+		- agendaContatos : TArray<pessoa>
+		- notasAluno : TArray<Integer>
+	
+	- setLength(agendaContatos,30):
+		- Define o tamanho do vetor com 30 posições.
+	
+	- Length(agendaContatos):
+		- Retorna o tamanho do vetor.
 		
 	- Como utilizar?
 	
